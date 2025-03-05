@@ -1,59 +1,96 @@
-# SplitNGoFrontend
+# SplitNGo-Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+Ce projet utilise **Docker** et **Docker Compose** pour exécuter une application Angular en mode développement et production.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 1. Prérequis
+Avant de commencer, assure-toi d'avoir installé :
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-```bash
-ng serve
+---
+
+## ⚙️ 2. Lancer l'application en mode développement (avec hot-reload)
+
+En mode développement, l'application utilise un serveur Node.js avec **`npm run start`** et le hot-reload activé.
+
+```sh
+# Démarrer l'application Angular en mode développement
+docker-compose --profile dev up
+```
+📌 L'application sera accessible sur **http://localhost:4200**
+
+### ⏹️ **Arrêter le conteneur**
+```sh
+docker-compose down
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+📌 **Avantages du mode développement :**
+- Code source monté en **volume** ✅
+- Hot-reload automatique ✅
+- Pas besoin de reconstruire l’image à chaque modification ✅
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🌐 3. Lancer l'application en mode production
+En mode production, l'application est compilée et servie via **Nginx** ou **http-server**.
 
-```bash
-ng generate component component-name
+```sh
+# Construire et démarrer le conteneur en mode production
+docker-compose --profile prod up --build
+```
+📌 L'application sera accessible sur **http://localhost:8080**
+
+### ⏹️ **Arrêter le conteneur**
+```sh
+docker-compose down
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+📌 **Avantages du mode production :**
+- Code Angular compilé en **mode production** ✅
+- Serveur optimisé pour servir les fichiers statiques ✅
 
-```bash
-ng generate --help
+---
+
+## 🛠 4. Commandes utiles
+
+### 🔄 **Rebuilder une image après modification du Dockerfile**
+```sh
+docker-compose build
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
+### 📦 **Lister les conteneurs actifs**
+```sh
+docker ps
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+### 🛑 **Arrêter et supprimer tous les conteneurs**
+```sh
+docker-compose down --volumes
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+### 🗑 **Nettoyer les images non utilisées**
+```sh
+docker system prune -a
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 🎯 5. Structure du projet
+```
+📂 angular-project/
+├── 📂 src/               # Code source Angular
+├── 📜 Dockerfile         # Fichier Docker pour la production
+├── 📜 docker-compose.yml # Configuration Docker Compose
+├── 📜 .dockerignore      # Exclusions pour Docker
+├── 📜 README.md          # Ce fichier !
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 💡 6. Prochaines étapes
+- Ajouter un **proxy backend** dans Nginx pour interagir avec l'API.
+- Ajouter des **tests end-to-end** et les exécuter en CI/CD.
+
+🔥 **Bon développement !** 🚀
