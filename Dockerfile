@@ -1,6 +1,12 @@
 # Utiliser une image Node.js Alpine
 FROM node:23.9-alpine3.20
 
+# Installe Chromium et ses dépendances
+RUN apk add --no-cache chromium nss freetype && rm -rf /var/cache/apk/*
+
+# Définit la variable d'environnement pour Chrome pour effectuer les tests avec Karma
+ENV CHROME_BIN=/usr/bin/chromium
+
 # Définir le répertoire de travail
 WORKDIR /app
 
@@ -8,7 +14,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Installer npm et Angular CLI
-RUN npm install -g npm @angular/cli@latest && npm install --legacy-peer-deps
+RUN npm install -g npm @angular/cli@latest && npm install --legacy-peer-deps && npm cache clean --force
 
 # Vérification de l'installation
 RUN node -v && npm -v && ng version
