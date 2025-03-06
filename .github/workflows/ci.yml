@@ -45,5 +45,5 @@ jobs:
         run: npm ci
 
       - name: Run unit tests with Karma
-        run: npm run test:ci
+        run: npm run test
 
