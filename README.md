@@ -17,7 +17,7 @@ En mode développement, l'application utilise un serveur Node.js avec **`npm run
 
 ```sh
 # Démarrer l'application Angular en mode développement
-docker-compose --profile dev up
+docker-compose --profile dev up --build
 ```
 📌 L'application sera accessible sur **http://localhost:4200**
 

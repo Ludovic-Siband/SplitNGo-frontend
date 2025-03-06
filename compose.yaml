@@ -2,23 +2,49 @@ services:
   angular:
     build:
       context: .
-      dockerfile: Dockerfile 
+      dockerfile: Dockerfile
     working_dir: /app
     volumes:
-      - .:/app  
-      - /app/node_modules  
+      - .:/app
+      - /app/node_modules
+      - ./src:/app/src
+    develop:
+      watch:
+        - path: ./src
+          action: sync
+          target: /app/src
+          ignore:
+            - node_modules
+        ### DOCKERFILE ###
+        - path: ./Dockerfile
+          action: rebuild
+        ### COMPOSE ###
+        - path: ./compose.yaml
+          action: rebuild
+        ### PACKAGE.json ###
+        - path: ./package.json
+          action: rebuild
+        ### TS CONFIG ###
+        - path: ./tsconfig.json
+          action: rebuild
+        - path: ./tsconfig.app.json
+          action: rebuild
+        ### ES LINT ###
+        - path: ./eslint.config.js
+          action: rebuild
+
     ports:
-      - "4200:4200" 
+      - "4200:4200"
     environment:
-      - CHOKIDAR_USEPOLLING=true  
+      - CHOKIDAR_USEPOLLING=true
     profiles:
-      - dev  
+      - dev
 
   angular-prod:
     build:
       context: .
-      dockerfile: Dockerfile  
+      dockerfile: Dockerfile
     ports:
-      - "8080:80"  
+      - "8080:80"
     profiles:
-      - prod  
+      - prod

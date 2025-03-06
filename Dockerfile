@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 4200
 
 # Démarrer Angular avec le serveur de développement
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+CMD ["ng", "serve", "--host", "0.0.0.0", "--poll", "1000"]
