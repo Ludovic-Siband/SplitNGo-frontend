@@ -43,7 +43,7 @@ module.exports = function (config) {
         flags: ['--no-sandbox', '--disable-gpu']
       }
     },
-    singleRun: process.argv.includes('--single-run') ? true : false,
+    singleRun: process.argv.includes('--single-run'),
     restartOnFileChange: true,
   });
 };
