@@ -29,7 +29,7 @@ jobs:
         run: npm run lint
 
   test:
-    name: Run Unit Tests with Karma in Docker
+    name: Karma unit Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -45,5 +45,5 @@ jobs:
         run: npm ci
 
       - name: Run unit tests with Karma
-        run: npm run test
+        run: npm run test -- --single-run
 
