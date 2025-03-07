@@ -19,6 +19,11 @@ En mode développement, l'application utilise un serveur Node.js avec **`npm run
 # Démarrer l'application Angular en mode développement
 docker-compose --profile dev up --watch
 ```
+
+```sh
+# Pas de tirets sur les dernières versions docker compose
+docker compose --profile dev up --watch
+```
 📌 L'application sera accessible sur **http://localhost:4200**
 
 ### ⏹️ **Arrêter le conteneur**
@@ -30,6 +35,7 @@ docker-compose down
 - Code source monté en **volume** ✅
 - Hot-reload automatique ✅
 - Pas besoin de reconstruire l’image à chaque modification ✅
+
 
 ---
 
@@ -74,7 +80,14 @@ docker-compose down --volumes
 ```sh
 docker system prune -a
 ```
-
+###  **Pour lancer les tests et les contrôles de qualité (eslint+prettier)**
+```sh
+# dans le terminal du conteneur
+# lancer les tests
+ng test
+# lancer les contrples de qualité
+ng lint  
+```
 ---
 
 ## 🎯 5. Structure du projet
