@@ -20,10 +20,17 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('SplitNGo-frontend');
   });
 
-  it('should render title', () => {
+  // it('should render title', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   fixture.detectChanges();
+  //   const compiled = fixture.nativeElement as HTMLElement;
+  //   expect(compiled.querySelector('h1')?.textContent).toContain('Hello, SplitNGo-frontend');
+  // });
+
+  it('should render home component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, SplitNGo-frontend');
+    expect(compiled.querySelector('app-home')).not.toBeNull();
   });
 });
