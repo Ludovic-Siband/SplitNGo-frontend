@@ -31,18 +31,4 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
-  toggleDarkMode() {
-    const body = document.body;
-    body.classList.toggle('dark-mode');
-    const isDarkMode = body.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', isDarkMode.toString());
-  }
-
-  toggleLightMode() {
-    const body = document.body;
-    body.classList.toggle('light-mode');
-    const isLightMode = body.classList.contains('light-mode');
-    localStorage.setItem('lightMode', isLightMode.toString());
-  }
 }
