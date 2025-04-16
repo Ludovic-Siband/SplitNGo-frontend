@@ -29,6 +29,7 @@
 
   &:hover {
     background-color: color.adjust(variables.$dark-secondary-color, $lightness: -10%);
+    color: variables.$dark-primary-color;
   }
 }
 

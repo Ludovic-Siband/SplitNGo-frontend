@@ -1,7 +1,17 @@
   <div class="content-center">
-  <h1 class="text-center mt-6 mb-5">Mes voyages</h1>
-    <div class="flex justify-center">
-    <button class="button-add flex">
+    <div class="flex px-8 py-4">
+      <div class="flex-1">
+  <h1 class="text-center mt-6 mb-5">{{ title }}</h1>
+      </div>
+      <div class="flex-none content-center">
+    <button class="button-add flex" (click)="openFormAddTravel()">
+      <mat-icon class="items-center">filter_list</mat-icon>
+    </button>
+      </div>
+    </div>
+    <div class="border-t border-dashed mx-4" style="border-color: #00A8B5;"></div>
+    <div class="flex justify-center mt-8">
+    <button class="button-add flex" (click)="openFormAddTravel()">
       <mat-icon class="mr-3">add_circle</mat-icon>
       Ajouter un voyage
     </button>

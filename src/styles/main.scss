@@ -16,50 +16,38 @@ body {
 h1 {
   font-family: 'Poller One', sans-serif;
   color: variables.$light-secondary-color;
-  font-size: variables.$font-size-large;
+  font-size: variables.$font-size-xlarge;
 }
 
 .button-add {
   @include mixins.button-base;
 
-  // styles dark-mode imbriqués
   .dark-mode & {
     @include mixins.button-base-dark;
   }
 }
 
+/* Mode sombre activé si la préférence de l'utilisateur est "dark" */
 @media (prefers-color-scheme: dark) {
+  body {
+    background-color: variables.$dark-background-color;
+    color: variables.$dark-text-color;
+  }
+
+  h1 {
+    font-family: 'Poller One', sans-serif;
+    color: variables.$light-secondary-color;
+    font-size: variables.$font-size-xlarge;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: variables.$dark-primary-color;
+  }
+
   .button-add {
     @include mixins.button-base-dark;
   }
 }
-
-/* Mode sombre activé si la préférence de l'utilisateur est "dark" */
-//@media (prefers-color-scheme: dark) {
-//  body {
-//    background-color: variables.$dark-background-color;
-//    color: variables.$dark-text-color;
-//  }
-//
-//  h1 {
-//    font-family: 'Poller One', sans-serif;
-//    color: variables.$light-secondary-color;
-//    font-size: variables.$font-size-large;
-//  }
-//
-//  h2, h3, h4, h5, h6 {
-//    color: variables.$dark-primary-color;
-//  }
-//
-//  .main-btn {
-//    background-color: variables.$dark-primary-color;
-//    color: variables.$dark-text-color;
-//
-//    &:hover {
-//      background-color: color.adjust(variables.$dark-primary-color, $lightness: -10%);
-//    }
-//  }
-//}
 
 /* Classe .dark-mode pour forcer l'activation du mode sombre */
 .dark-mode {
@@ -70,7 +58,7 @@ h1 {
 .dark-mode h1 {
   font-family: 'Poller One', sans-serif;
   color: variables.$light-secondary-color;
-  font-size: variables.$font-size-large;
+  font-size: variables.$font-size-xlarge;
 }
 
 .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
@@ -81,11 +69,3 @@ h1 {
   @include mixins.button-base-dark;
 }
 
-.dark-mode .main-btn {
-  background-color: variables.$dark-primary-color;
-  color: variables.$dark-text-color;
-
-  &:hover {
-    background-color: color.adjust(variables.$dark-primary-color,$lightness: -10%);
-  }
-}

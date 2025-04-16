@@ -8,4 +8,10 @@ import { MatIcon } from '@angular/material/icon';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  title = 'Mes voyages';
+
+  openFormAddTravel() {
+    console.log('openFormAddTravel');
+  }
+}
