@@ -1,0 +1,91 @@
+@use 'sass:color';
+@use './variables';
+@use './mixins';
+
+
+/* Mode clair par défaut */
+body {
+  background-color: variables.$light-background-color;
+  color: variables.$light-text-color;
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1 {
+  font-family: 'Poller One', sans-serif;
+  color: variables.$light-secondary-color;
+  font-size: variables.$font-size-large;
+}
+
+.button-add {
+  @include mixins.button-base;
+
+  // styles dark-mode imbriqués
+  .dark-mode & {
+    @include mixins.button-base-dark;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .button-add {
+    @include mixins.button-base-dark;
+  }
+}
+
+/* Mode sombre activé si la préférence de l'utilisateur est "dark" */
+//@media (prefers-color-scheme: dark) {
+//  body {
+//    background-color: variables.$dark-background-color;
+//    color: variables.$dark-text-color;
+//  }
+//
+//  h1 {
+//    font-family: 'Poller One', sans-serif;
+//    color: variables.$light-secondary-color;
+//    font-size: variables.$font-size-large;
+//  }
+//
+//  h2, h3, h4, h5, h6 {
+//    color: variables.$dark-primary-color;
+//  }
+//
+//  .main-btn {
+//    background-color: variables.$dark-primary-color;
+//    color: variables.$dark-text-color;
+//
+//    &:hover {
+//      background-color: color.adjust(variables.$dark-primary-color, $lightness: -10%);
+//    }
+//  }
+//}
+
+/* Classe .dark-mode pour forcer l'activation du mode sombre */
+.dark-mode {
+  background-color: variables.$dark-background-color;
+  color: variables.$dark-text-color;
+}
+
+.dark-mode h1 {
+  font-family: 'Poller One', sans-serif;
+  color: variables.$light-secondary-color;
+  font-size: variables.$font-size-large;
+}
+
+.dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+  color: variables.$dark-primary-color;
+}
+
+.dark-mode .button-add {
+  @include mixins.button-base-dark;
+}
+
+.dark-mode .main-btn {
+  background-color: variables.$dark-primary-color;
+  color: variables.$dark-text-color;
+
+  &:hover {
+    background-color: color.adjust(variables.$dark-primary-color,$lightness: -10%);
+  }
+}
