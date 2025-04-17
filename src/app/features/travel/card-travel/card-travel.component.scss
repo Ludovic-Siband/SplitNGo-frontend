@@ -1,0 +1,68 @@
+@use '../../../../styles/breakpoints';
+
+.card-travel {
+  position: relative;
+  background-color: #cfcfcf;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 100%;
+  min-height: 150px;
+  height: auto;
+  margin-bottom:1rem;
+
+  .card-header {
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-family: 'Poller One', sans-serif;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #333333;
+    }
+
+    .date {
+      font-size: 1rem;
+      font-weight: 300;
+      color: white;
+      display: block;
+    }
+  }
+
+  .initials-list {
+    display: flex;
+    gap: 0.3rem;
+
+    .initial {
+      width: 1.5rem;
+      height: 1.5rem;
+
+      background-color: white;
+      color: #333333;
+      font-weight: 800;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &.archived {
+    background-color: #F2F2F2;
+    opacity: 0.7;
+  }
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  // Par défaut, 3 cartes par ligne
+  gap: 16px;  // Espacement entre les cartes
+
+  @include breakpoints.respond-up(md) {
+    grid-template-columns: repeat(2, 1fr);  // 2 cartes par ligne pour tablette
+  }
+
+  @include breakpoints.respond-up(sm) {
+    grid-template-columns: 1fr;  // 1 carte par ligne pour mobile
+  }
+}

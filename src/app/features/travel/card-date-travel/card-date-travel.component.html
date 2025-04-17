@@ -1,1 +1,16 @@
-<p>card-date-travel works!</p>
+
+@for(trip of trips$$(); track trip.id) {
+  <div class="mini-card">
+    <div class="mini-card-header">à venir</div>
+    <div class="mini-card-content">
+      <div class="section">
+        <p class="label">Départ</p>
+        <p class="value"> {{ trip.dateStart | date:'yyyy-MM-dd' }} </p>
+      </div>
+      <div class="section">
+        <p class="label">Retour</p>
+        <p class="value">{{ trip.dateEnd | date:'yyyy-MM-dd' }} </p>
+      </div>
+    </div>
+  </div>
+}
