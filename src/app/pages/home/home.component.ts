@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { CardTravelComponent } from '../../features/travel/card-travel/card-travel.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
