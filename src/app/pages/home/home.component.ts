@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterOutlet, MatIcon],
   templateUrl: './home.component.html',
+  imports: [MatIcon, RouterOutlet],
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
