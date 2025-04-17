@@ -1,1 +1,13 @@
-<p>card-travel works!</p>
+<div class="card-travel" [ngClass]="{ 'archived': isArchived }">
+  <app-card-date-travel></app-card-date-travel>
+  <div class="card-header">
+    <h2>Sports d'hiver</h2>
+    <span class="date">Dernier ajout le 04-01-2025</span>
+  </div>
+  <div class="initials-list">
+    <div class="initial">AZ</div>
+    <div class="initial">EB</div>
+    <div class="initial">TS</div>
+    <div class="initial">LP</div>
+  </div>
+</div>
