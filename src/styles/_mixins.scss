@@ -1,0 +1,35 @@
+@use './variables';
+@use 'sass:color';
+
+// Centrage rapide
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Bouton ajout
+@mixin button-base {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: variables.$light-primary-color;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: color.adjust(variables.$light-secondary-color, $lightness: -10%);
+  }
+}
+
+// Bouton ajout dark mode
+@mixin button-base-dark {
+  background-color: variables.$dark-primary-color;
+  color: variables.$dark-background-color;
+
+  &:hover {
+    background-color: color.adjust(variables.$dark-secondary-color, $lightness: -10%);
+    color: variables.$dark-primary-color;
+  }
+}
+

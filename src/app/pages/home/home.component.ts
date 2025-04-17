@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [RouterOutlet, MatIcon],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  title = 'Mes voyages';
+
+  openFormAddTravel() {
+    console.log('openFormAddTravel');
+  }
+}

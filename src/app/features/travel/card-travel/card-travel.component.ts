@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-card-travel',
   imports: [],
   templateUrl: './card-travel.component.html',
-  styleUrl: './card-travel.component.css',
+  styleUrl: './card-travel.component.scss',
 })
 export class CardTravelComponent {}

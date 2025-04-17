@@ -1,0 +1,71 @@
+@use 'sass:color';
+@use './variables';
+@use './mixins';
+
+
+/* Mode clair par défaut */
+body {
+  background-color: variables.$light-background-color;
+  color: variables.$light-text-color;
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1 {
+  font-family: 'Poller One', sans-serif;
+  color: variables.$light-secondary-color;
+  font-size: variables.$font-size-xlarge;
+}
+
+.button-add {
+  @include mixins.button-base;
+
+  .dark-mode & {
+    @include mixins.button-base-dark;
+  }
+}
+
+/* Mode sombre activé si la préférence de l'utilisateur est "dark" */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: variables.$dark-background-color;
+    color: variables.$dark-text-color;
+  }
+
+  h1 {
+    font-family: 'Poller One', sans-serif;
+    color: variables.$light-secondary-color;
+    font-size: variables.$font-size-xlarge;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: variables.$dark-primary-color;
+  }
+
+  .button-add {
+    @include mixins.button-base-dark;
+  }
+}
+
+/* Classe .dark-mode pour forcer l'activation du mode sombre */
+.dark-mode {
+  background-color: variables.$dark-background-color;
+  color: variables.$dark-text-color;
+}
+
+.dark-mode h1 {
+  font-family: 'Poller One', sans-serif;
+  color: variables.$light-secondary-color;
+  font-size: variables.$font-size-xlarge;
+}
+
+.dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+  color: variables.$dark-primary-color;
+}
+
+.dark-mode .button-add {
+  @include mixins.button-base-dark;
+}
+

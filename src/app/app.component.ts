@@ -1,12 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeComponent } from './pages/home/home.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [HomeComponent],
+  imports: [HomeComponent, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'SplitNGo-frontend';
+  ngOnInit() {
+    this.checkDarkModePreference();
+  }
+
+  checkDarkModePreference() {
+    // Vérifie si l'utilisateur a activé le dark mode via les préférences du système
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+
+    // Optionnel: écouter les changements de la préférence du système
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (e.matches) {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    });
+  }
 }
