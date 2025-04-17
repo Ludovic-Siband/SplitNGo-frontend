@@ -1,12 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent, HomeComponent, RouterOutlet],
+      imports: [AppComponent, RouterOutlet],
     }).compileComponents();
   });
   it('should create the app', () => {
@@ -19,12 +18,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('SplitNGo-frontend');
-  });
-
-  it('should render home component', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('app-home')).not.toBeNull();
   });
 });
