@@ -1,14 +1,16 @@
-<div class="mini-card">
-  <div class="mini-card-header">à venir</div>
-  <div class="mini-card-content">
-    <div class="section">
-      <p class="label">Départ</p>
-      <p class="value">11-02-25</p>
-    </div>
-    <div class="section">
-      <p class="label">Retour</p>
-      <p class="value">28-02-25</p>
+
+@for(trip of trips$$(); track trip.id) {
+  <div class="mini-card">
+    <div class="mini-card-header">à venir</div>
+    <div class="mini-card-content">
+      <div class="section">
+        <p class="label">Départ</p>
+        <p class="value"> {{ trip.dateStart }} </p>
+      </div>
+      <div class="section">
+        <p class="label">Retour</p>
+        <p class="value">{{ trip.dateEnd }} </p>
+      </div>
     </div>
   </div>
-</div>
-
+}
