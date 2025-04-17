@@ -5,11 +5,11 @@
     <div class="mini-card-content">
       <div class="section">
         <p class="label">Départ</p>
-        <p class="value"> {{ trip.dateStart }} </p>
+        <p class="value"> {{ trip.dateStart | date:'yyyy-MM-dd' }} </p>
       </div>
       <div class="section">
         <p class="label">Retour</p>
-        <p class="value">{{ trip.dateEnd }} </p>
+        <p class="value">{{ trip.dateEnd | date:'yyyy-MM-dd' }} </p>
       </div>
     </div>
   </div>

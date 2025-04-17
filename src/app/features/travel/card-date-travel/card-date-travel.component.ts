@@ -1,12 +1,14 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { Trip } from '../../../core/interfaces/trips.models';
 import { SplitngoService } from '../../../core/services/splitngo.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-card-date-travel',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './card-date-travel.component.html',
   styleUrl: './card-date-travel.component.scss',
+  providers: [DatePipe],
 })
 export class CardDateTravelComponent implements OnInit {
   trips$$ = signal<Trip[]>([]);

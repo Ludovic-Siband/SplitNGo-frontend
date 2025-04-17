@@ -1,5 +1,5 @@
 import { Component, Input, signal, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { CardDateTravelComponent } from '../card-date-travel/card-date-travel.component';
 import { Trip } from '../../../core/interfaces/trips.models';
 import { SplitngoService } from '../../../core/services/splitngo.service';
@@ -10,6 +10,7 @@ import { SplitngoService } from '../../../core/services/splitngo.service';
   imports: [CommonModule, CardDateTravelComponent],
   templateUrl: './card-travel.component.html',
   styleUrl: './card-travel.component.scss',
+  providers: [DatePipe],
 })
 export class CardTravelComponent implements OnInit {
   @Input() isArchived = false;
